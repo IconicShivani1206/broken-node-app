@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 // Checkout the code from GitHub repo
-                git 'https://github.com/example/broken-node-app.git' // ❌ Bad repo URL (intentional error)
+                git 'https://github.com/IconicShivani1206/broken-node-app.git' // ❌ Bad repo URL (intentional error)
             }
         }
 
