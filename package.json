@@ -1,0 +1,17 @@
+{
+    "name": "broken-app",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "node app.js",
+      "test": "jest"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "non-existent-lib": "1.2.3" 
+    },
+    "devDependencies": {
+      "eslint": "^7.32.0",
+      "jest": "^27.0.6"
+    }
+  }
+  
