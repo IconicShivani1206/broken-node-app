@@ -6,19 +6,22 @@ pipeline {
     }
 
     stages {
-        stage('Checkout Code') {
-            steps {
-                // Checkout the code from GitHub repo
-                git 'https://github.com/IconicShivani1206/broken-node-app.git' // ❌ Bad repo URL (intentional error)
-            }
-        }
 
-        stage('Setup Node.js') {
-            steps {
-                // Simulating setting up Node version
-                sh 'nvm install $NODE_VERSION' // ❌ May fail if nvm not installed in Jenkins agent
-            }
-        }
+
+        node {
+    stage('Checkout SCM') {
+        steps{
+        checkout scm: [$class: 'GitSCM', branches: [[name: '**/main']], userRemoteConfigs: [[url: 'https://github.com/IconicShivani1206/broken-node-app']]]
+    }
+    }
+    
+    
+
+    stage('Checkout Code') {  // If you have a second checkout step
+    steps{
+        checkout scm: [$class: 'GitSCM', branches: [[name: '**/main']], userRemoteConfigs: [[url: 'https://github.com/IconicShivani1206/broken-node-app.git']]] // Consistent .git or no .git
+    }
+    }
 
         stage('Install Dependencies') {
             steps {
